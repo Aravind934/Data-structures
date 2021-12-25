@@ -1,0 +1,13 @@
+const findPosition = (arr, element) => {
+    let start = 0, end = arr.length - 1, mid;
+    while (start <= end) {
+        mid = Math.floor((start + end) / 2);
+        if (arr[mid] === element) return mid
+        if (element > arr[mid]) start = mid + 1
+        else end = mid - 1
+    }
+    return null;
+}
+
+// let res = findPosition([10, 13, 34, 56], 56)
+// console.log(res)
