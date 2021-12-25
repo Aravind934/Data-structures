@@ -1,0 +1,18 @@
+const maxSubArraySum = (arr, subArrLen) => {
+    if (subArrLen > arr.length) return null
+    let result = 0, temp = 0;
+    //To make window
+    for (let i = 0; i < subArrLen; i++) {
+        result += arr[i]
+    }
+    temp = result
+    //slide the window
+    for (let j = subArrLen; j < arr.length; j++) {
+        temp = temp + arr[j] - arr[j - subArrLen];
+        if (temp > result) result = temp
+    }
+    return result;
+}
+
+// let res = maxSubArraySum([10, 10, 20, 40, 2], 4)
+// console.log(res)
